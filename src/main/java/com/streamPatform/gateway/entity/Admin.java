@@ -1,4 +1,4 @@
-package entity;
+package com.streamPatform.gateway.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

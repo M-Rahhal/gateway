@@ -6,7 +6,7 @@ import com.streamPatform.gateway.utils.annotations.PublicAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-import services.AuthService;
+import com.streamPatform.gateway.services.AuthService;
 
 @RestController
 public class AuthController {

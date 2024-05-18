@@ -1,7 +1,6 @@
-package repos;
+package com.streamPatform.gateway.repos;
 
-import entity.Admin;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.streamPatform.gateway.entity.Admin;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

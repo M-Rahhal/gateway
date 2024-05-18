@@ -1,10 +1,10 @@
-package services;
+package com.streamPatform.gateway.services;
 
 
-import entity.FilteredMovie;
+import com.streamPatform.gateway.entity.FilteredMovie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repos.FilteredMovieRepository;
+import com.streamPatform.gateway.repos.FilteredMovieRepository;
 
 @Service
 public class FilteredMovieService {

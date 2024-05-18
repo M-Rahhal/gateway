@@ -5,7 +5,7 @@ import com.streamPatform.gateway.utils.annotations.FilterPattern;
 import com.streamPatform.gateway.utils.annotations.PublicAPI;
 
 import com.streamPatform.gateway.utils.annotations.PythonServiceAPI;
-import entity.Admin;
+import com.streamPatform.gateway.entity.Admin;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerExecutionChain;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import services.AuthService;
+import com.streamPatform.gateway.services.AuthService;
 
 import java.io.IOException;
 import java.util.Objects;

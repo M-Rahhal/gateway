@@ -1,9 +1,9 @@
-package services;
+package com.streamPatform.gateway.services;
 
-import entity.Movie;
+import com.streamPatform.gateway.entity.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repos.MovieRepository;
+import com.streamPatform.gateway.repos.MovieRepository;
 
 import java.util.List;
 

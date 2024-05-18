@@ -1,16 +1,12 @@
-package entity;
+package com.streamPatform.gateway.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "movies")
-public class Movie {
+@Data
+@Table(name = "filtered_movies")
+public class FilteredMovie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +17,5 @@ public class Movie {
 
     @Column(name = "movie_path", nullable = false)
     private String moviePath;
-
 
 }

@@ -1,7 +1,6 @@
-package repos;
+package com.streamPatform.gateway.repos;
 
-import entity.FilteredMovie;
-import entity.Movie;
+import com.streamPatform.gateway.entity.FilteredMovie;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +13,5 @@ public interface FilteredMovieRepository extends CrudRepository<FilteredMovie, L
 
     List<FilteredMovie> findAll();
     Optional<FilteredMovie> findById(Long id);
-    Object save(FilteredMovie movie);
+    FilteredMovie save(FilteredMovie movie);
 }

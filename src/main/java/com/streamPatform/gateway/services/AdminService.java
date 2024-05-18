@@ -1,10 +1,10 @@
-package services;
+package com.streamPatform.gateway.services;
 
 
-import entity.Admin;
+import com.streamPatform.gateway.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repos.AdminRepository;
+import com.streamPatform.gateway.repos.AdminRepository;
 
 import java.util.Optional;
 
@@ -13,7 +13,6 @@ public class AdminService {
     @Autowired
     private AdminRepository repository;
 
-    @Autowired
 
     public Admin getAdmin(String userName){
         Optional<Admin> obj = repository.findByUserName(userName);
