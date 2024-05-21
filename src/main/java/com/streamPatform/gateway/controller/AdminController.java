@@ -25,7 +25,10 @@ public class AdminController {
 
     @AdminAPI
     @PostMapping("/upload")
-    public ResponseEntity uploadVideo(@RequestParam("video")MultipartFile file  , @RequestParam("video-name")String name) throws IOException {
+    public ResponseEntity uploadVideo(@RequestParam("video")MultipartFile file  ,
+                                      @RequestParam("video-name")String name ,
+                                      @RequestParam("filtered") String filtered ,
+                                      @RequestParam("do_filter") String doFilter) throws IOException {
         if (file.isEmpty())
             return ResponseEntity.badRequest().body("The file is Empty");
 
@@ -35,7 +38,12 @@ public class AdminController {
             return ResponseEntity.badRequest().body("Unsupported format");
         movieService.createMovie(name);
         Movie movie = movieService.getByName(name);
-        String path = storageService.uploadFile(Base64.getEncoder().encodeToString(bytes) , movie.getId().toString());
+        String path = null;
+        try {
+            path = storageService.saveUnfilteredVideo(file ,movie.getMovieName());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
         movie.setMoviePath(path);
         movieService.saveMovie(movie);
         return ResponseEntity.ok().body("File uploaded");

@@ -34,9 +34,6 @@ public class AuthFilter implements Filter {
     @Autowired
     private ApplicationContext applicationContext;
 
-    @Value("${spring.profiles.active}")
-    private String activeProfile;
-
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
@@ -68,7 +65,7 @@ public class AuthFilter implements Filter {
                             chain.doFilter(request, response);
                                 return;
                         }
-                        if (isPythonService != null){
+                        else if (isPythonService != null){
                             String token = req.getHeader("Authorization");
                             if (token==null || token.isEmpty())
                                 throw new Exception("only admins can access this api!");
@@ -77,6 +74,10 @@ public class AuthFilter implements Filter {
                             chain.doFilter(request, response);
                             return;
                         }
+                        else {
+                            res.setStatus(401);
+                            res.getWriter().write("Unauthorized");
+                        }
                     }
                     chain.doFilter(request, response);
                     return;
@@ -84,12 +85,6 @@ public class AuthFilter implements Filter {
             }
             throw new Exception("Couldn't find handler method");
         } catch (Exception e) {
-            if(activeProfile.equals("dev")) {
-                e.printStackTrace();
-                res.setStatus(500);
-                res.getWriter().write(e.getMessage());
-                return;
-            }
             res.setStatus(401);
             res.getWriter().write("Unauthorized");
         }

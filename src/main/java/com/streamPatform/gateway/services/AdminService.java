@@ -19,4 +19,12 @@ public class AdminService {
         Admin admin = obj.isPresent()   ?   obj.get()   :   null;
         return admin;
     }
+    public void addAdmin(String username , String password,String firstName, String lastName ){
+        Admin admin = new Admin();
+        admin.setFirstName(firstName);
+        admin.setLastName(lastName);
+        admin.setPassword(password);
+        admin.setUserName(username);
+        repository.save(admin);
+    }
 }
