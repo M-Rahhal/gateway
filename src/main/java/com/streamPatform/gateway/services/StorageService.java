@@ -28,7 +28,7 @@ public class StorageService {
             throw new Exception("The video is empty!");
 
         byte[] videoBytes = video.getBytes();
-        Path path = Paths.get(filteredPath+"\\"+videoName);
+        Path path = Paths.get(filteredPath+"/"+videoName);
         Files.write(path , videoBytes);
 
         return path.toString();
@@ -39,7 +39,7 @@ public class StorageService {
             throw new Exception("The video is empty!");
 
         byte[] videoBytes = video.getBytes();
-        Path path = Paths.get(unfilteredPath+"\\"+videoName);
+        Path path = Paths.get(unfilteredPath+"/"+videoName);
         Files.write(path , videoBytes);
 
         return path.toString();

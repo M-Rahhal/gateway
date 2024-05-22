@@ -10,7 +10,6 @@ import java.util.Optional;
 @Repository
 public interface FilteredMovieRepository extends CrudRepository<FilteredMovie, Long> {
     Optional<FilteredMovie> findByMovieName(String movieName);
-
     List<FilteredMovie> findAll();
     Optional<FilteredMovie> findById(Long id);
     FilteredMovie save(FilteredMovie movie);

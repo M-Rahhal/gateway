@@ -86,6 +86,7 @@ public class AuthFilter implements Filter {
             throw new Exception("Couldn't find handler method");
         } catch (Exception e) {
             res.setStatus(401);
+            e.printStackTrace();
             res.getWriter().write("Unauthorized");
         }
     }
